@@ -1,4 +1,5 @@
-import { httpRequest, requestMethods } from "@/lib/services/httpService";
+import { httpRequest } from "@/app/actions";
+import { requestMethods } from "@/lib/interfaces/interfaces";
 import ProductRow from "./ProductRow";
 
 async function ProductsTable() {
@@ -21,7 +22,7 @@ async function ProductsTable() {
           </thead>
           <tbody className=" divide-y divide-gray-700 bg-gray-800">
             {products?.map((item: any) => (
-              <ProductRow {...item} />
+              <ProductRow key={item?._id} {...item} />
             ))}
           </tbody>
         </table>

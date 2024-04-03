@@ -1,4 +1,5 @@
-import { httpRequest, requestMethods } from "@/lib/services/httpService";
+import { httpRequest } from "@/app/actions";
+import { requestMethods } from "@/lib/interfaces/interfaces";
 import Card from "./Card";
 
 async function Cards() {
@@ -6,8 +7,6 @@ async function Cards() {
     path: "/shop/statistics",
     method: requestMethods.get,
   });
-
-  console.log(statistics)
 
   return (
     <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
