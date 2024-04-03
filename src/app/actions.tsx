@@ -1,5 +1,6 @@
 "use server";
 import { fetchInterface } from "@/lib/interfaces/interfaces";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 export const getCookies = async (key: string) => {
@@ -11,6 +12,10 @@ export const getCookies = async (key: string) => {
 
 export async function setCookieAction(name: string, value: string) {
   cookies().set(name, value);
+}
+
+export async function revalidateRouteAction(path: string) {
+  revalidatePath(path);
 }
 
 export const httpRequest = async ({
@@ -30,6 +35,7 @@ export const httpRequest = async ({
       ...headersArg,
     };
 
+    console.log(headers)
     const res = await fetch(url, {
       headers,
       method,

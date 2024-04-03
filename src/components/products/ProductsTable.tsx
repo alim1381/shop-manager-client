@@ -16,8 +16,8 @@ async function ProductsTable() {
             <tr className="text-xs font-semibold tracking-wide text-left  uppercase border-b border-gray-700  text-gray-400 bg-gray-800">
               <th className="px-4 py-3">Name</th>
               <th className="px-4 py-3">Amount</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">Create Date</th>
+              <th className="px-4 py-3 hidden sm:block">Status</th>
+              <th className="hidden px-4 py-3 sm:block">Create Date</th>
             </tr>
           </thead>
           <tbody className=" divide-y divide-gray-700 bg-gray-800">

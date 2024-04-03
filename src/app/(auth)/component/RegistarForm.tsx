@@ -46,6 +46,7 @@ export default function RegistarForm() {
         return router.push("/");
       }
     } catch (error: any) {
+      setLoading(false);
       toast.error(error?.message || "request failed");
     }
   };

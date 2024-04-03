@@ -20,17 +20,21 @@ function ProductRow({ title, image, count, createdAt }: productsRowInterfaca) {
             ></div>
           </div>
           <div>
-            <p className="font-semibold">{title}</p>
+            <p className="font-semibold break-words">
+              {title.substring(0, 10)}
+            </p>
           </div>
         </div>
       </td>
       <td className="px-4 py-3 text-sm">{count}</td>
-      <td className="px-4 py-3 text-xs">
+      <td className="px-4 py-3 text-xs hidden sm:block">
         <span className="px-2 py-1 font-semibold leading-tight   rounded-full bg-green-700 text-green-100">
           Approved
         </span>
       </td>
-      <td className="px-4 py-3 text-sm">{createdAt.split("T")[0]}</td>
+      <td className="px-4 hidden py-3 text-sm sm:block">
+        {createdAt.split("T")[0]}
+      </td>
     </tr>
   );
 }
