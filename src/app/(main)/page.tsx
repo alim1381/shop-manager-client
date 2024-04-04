@@ -1,5 +1,5 @@
 import Cards from "@/components/cards/Cards";
-
+export const dynamic = "force-dynamic"
 function DashboardPage() {
   return (
     <>

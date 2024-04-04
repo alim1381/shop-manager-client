@@ -1,5 +1,5 @@
 import ProductsTable from "@/components/products/ProductsTable";
-
+export const dynamic = "force-dynamic"
 function ProductsPage() {
   
   return (
