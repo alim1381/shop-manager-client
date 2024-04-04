@@ -6,6 +6,7 @@ async function Cards() {
   const statistics = await httpRequest({
     path: "/shop/statistics",
     method: requestMethods.get,
+    cacheConfig: "no-store",
   });
 
   return (

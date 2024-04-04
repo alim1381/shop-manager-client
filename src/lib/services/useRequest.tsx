@@ -4,14 +4,16 @@ import { useState } from "react";
 import axios from "axios";
 import { getCookies } from "@/app/actions";
 
-function useRequest(url: string, method: string, headers: any) {
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
+function useRequest(url: string, method: string, headers?: any) {
+  const [response, setResponse] = useState<any>(null);
+  const [error, setError] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [percentProgress, setPercentProgress] = useState(0);
 
-  const fetchRequest = (payload: any) => {
+  const fetchRequest = (payload?: any) => {
     setLoading(true);
+    setError(null);
+    setResponse(null);
     const configs = {
       headers: { ...headers },
       onUploadProgress: (pe: any) => {
@@ -20,8 +22,11 @@ function useRequest(url: string, method: string, headers: any) {
     };
     httpService[method.toLowerCase()](
       url,
-      method.toLowerCase() === "post" ? payload : configs,
-      method.toLowerCase() === "post" && configs
+      method.toLowerCase() === "post" || method.toLowerCase() === "put"
+        ? payload
+        : configs,
+      (method.toLowerCase() === "post" || method.toLowerCase() === "put") &&
+        configs
     )
       .then((res: any) => {
         setResponse(res?.data);

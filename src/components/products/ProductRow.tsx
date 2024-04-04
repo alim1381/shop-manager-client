@@ -1,12 +1,20 @@
+import Link from "next/link";
 import React from "react";
 
 interface productsRowInterfaca {
+  _id: string;
   title: string;
   image: string;
   count: number;
   createdAt: string;
 }
-function ProductRow({ title, image, count, createdAt }: productsRowInterfaca) {
+function ProductRow({
+  _id,
+  title,
+  image,
+  count,
+  createdAt,
+}: productsRowInterfaca) {
   return (
     <tr className=" text-gray-400">
       <td className="px-4 py-3">
@@ -26,11 +34,14 @@ function ProductRow({ title, image, count, createdAt }: productsRowInterfaca) {
           </div>
         </div>
       </td>
-      <td className="px-4 py-3 text-sm">{count}</td>
-      <td className="px-4 py-3 text-xs hidden sm:block">
-        <span className="px-2 py-1 font-semibold leading-tight   rounded-full bg-green-700 text-green-100">
-          Approved
-        </span>
+      <td className="px-4 py-3 text-sm hidden sm:block">{count}</td>
+      <td className="px-4 py-3 text-xs">
+        <Link
+          href={`/products/edit/${_id}`}
+          className="px-2 py-1 font-semibold leading-tight   rounded-full bg-green-700 text-green-100"
+        >
+          Open
+        </Link>
       </td>
       <td className="px-4 hidden py-3 text-sm sm:block">
         {createdAt.split("T")[0]}
