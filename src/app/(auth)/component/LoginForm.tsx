@@ -35,7 +35,7 @@ export default function LoginForm() {
       if (res?.token) {
         setCookieAction("accessToken", res.token);
         toast.success("Success in transition...");
-        return router.push("/");
+        return router.refresh();
       }
     } catch (error: any) {
       setLoading(false);

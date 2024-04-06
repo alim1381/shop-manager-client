@@ -1,13 +1,6 @@
-import { httpRequest } from "@/app/actions";
-import { requestMethods } from "@/lib/interfaces/interfaces";
 import ProductRow from "./ProductRow";
 
-async function ProductsTable() {
-  const products = await httpRequest({
-    path: "/products",
-    method: requestMethods.get,
-    cacheConfig: "no-store",
-  });
+function ProductsTable({ products }: { products: any }) {
   return (
     <div className="w-full overflow-hidden rounded-lg shadow-xs">
       <div className="w-full overflow-x-auto">
