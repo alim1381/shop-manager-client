@@ -135,7 +135,7 @@ export default function CreateProductForm() {
             </div>
           </div>
         )}
-        {loading && <span>{percentProgress.toFixed(1)}%</span>}
+        {loading && <span className=" text-white">{percentProgress.toFixed(1)}%</span>}
       </div>
     </>
   );
