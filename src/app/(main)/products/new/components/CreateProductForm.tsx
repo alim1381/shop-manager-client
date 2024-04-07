@@ -26,7 +26,8 @@ export default function CreateProductForm() {
   useEffect(() => {
     if (response) {
       redirectHandler();
-    } else if (error) {
+    }
+    if (error) {
       toast.error(error || "request faild");
     }
   }, [response, error]);
@@ -135,7 +136,9 @@ export default function CreateProductForm() {
             </div>
           </div>
         )}
-        {loading && <span className=" text-white">{percentProgress.toFixed(1)}%</span>}
+        {loading && (
+          <span className=" text-white">{percentProgress.toFixed(1)}%</span>
+        )}
       </div>
     </>
   );
